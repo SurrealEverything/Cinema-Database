@@ -1,2 +1,2 @@
 # Cinema-Database
-Database classes for a cinema hall and a ticket system.
+Database classes for cinema halls and tickets system.
