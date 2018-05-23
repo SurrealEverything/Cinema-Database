@@ -1,6 +1,8 @@
 package proiectpao;
 
-public class Ticket 
+import java.io.Serializable;
+
+public class Ticket implements Serializable 
 {
     int id, hallId, hour, seat;
     String name;
