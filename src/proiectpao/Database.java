@@ -11,7 +11,7 @@ public class Database
         {
                   Class.forName("org.sqlite.JDBC");
                   c = DriverManager.getConnection( databaseConName );
-                  System.out.println("Connected to database \'" + databaseFileName + "\' successfully");
+                  System.out.println("Connected to database \'" + databaseFileName + "\' successfully!");
         } 
         catch ( Exception e ) 
         {
@@ -52,7 +52,7 @@ public class Database
                 }
                 else
                 {
-                    System.out.println("Table \'" + tableName + "\' already exists");
+                    System.out.println("Table \'" + tableName + "\' already exists!");
                 }
             } 
             catch ( Exception e ) 

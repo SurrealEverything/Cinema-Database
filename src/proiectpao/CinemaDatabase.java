@@ -183,16 +183,16 @@ public class CinemaDatabase extends Database
     
     public static void main( String args[] ) 
     {
-        createTable(cinemaDatabaseFileName, cinemaDatabaseConName, cinemaHallTableName, cinemaHallSql);//creeaza baza de date(nu trb rulat decat o data ca sa genereze fisierul .db)
-        /*insertCinemaHall("Pompeiu", 100, "Cezara Benegui", 4, 6);
-        insertCinemaHall("Titeica", 120, "Cezar Benegui", 6, 8);
-        insertCinemaHall("Haret", 200, "Cezar Beneguia", 2, 4);
-        insertCinemaHall("Stoilow", 50, "Cezara Beneguia", 12, 2);
-        deleteCinemaHall("Titeica");
-        modifyCinemaHall("Pompeiu", "SEATS", "30");
-        CinemaHall[] result = viewCinemaHalls();
-        for (CinemaHall temp:result)
-            if(temp != null)
-                temp.printContent();*/
+        //createTable(cinemaDatabaseFileName, cinemaDatabaseConName, cinemaHallTableName, cinemaHallSql);//creeaza baza de date(nu trb rulat decat o data ca sa genereze fisierul .db)
+        insertCinemaHall("Pompeiu", 100, "John Petrescu", 4, 6);
+//        insertCinemaHall("Titeica", 120, "Cezar Ionescu", 6, 8);
+//        insertCinemaHall("Haret", 200, "Lolita Lola", 2, 4);
+//        insertCinemaHall("Stoilow", 50, "Dan Puric", 12, 2);
+//        deleteCinemaHall("Titeica");
+//        modifyCinemaHall("Pompeiu", "SEATS", "30");
+//        CinemaHall[] result = viewCinemaHalls();
+//        for (CinemaHall temp:result)
+//            if(temp != null)
+//                temp.printContent();
     }
 }

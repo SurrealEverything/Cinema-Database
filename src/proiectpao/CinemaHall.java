@@ -1,6 +1,8 @@
 package proiectpao;
 
-public class CinemaHall 
+import java.io.Serializable;
+
+public class CinemaHall implements Serializable 
 {
     String name, managerName;
     int id, seats, openingTime, closingTime;
