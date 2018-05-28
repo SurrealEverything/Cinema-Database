@@ -6,13 +6,13 @@ import java.util.*;
 
 public class Client
 {
-    protected InetAddress ADDRESS;
-    protected int PORT = 5008;
+    protected static InetAddress ADDRESS;
+    protected static int PORT = 5008;
         
-    protected Socket cs;
+    protected static Socket cs;
     
-    protected ObjectInputStream ois = null;
-    protected DataOutputStream dos = null;
+    protected static ObjectInputStream ois = null;
+    protected static DataOutputStream dos = null;
     
     public Client() throws IOException
     {
@@ -36,7 +36,7 @@ public class Client
         }
     }
 
-    public void start() throws IOException
+    public static void start() throws IOException
     {
         Scanner sc = new Scanner(System.in);
         try 
@@ -99,6 +99,9 @@ public class Client
                     case "THALL":
                         sendViewHallTickets(2);
                         break;
+                    case "UVALIDATION":
+                        sendIsValid("Gabi", "Kafku");
+                        break;
                 }
             } 
             catch (IOException e)
@@ -109,7 +112,7 @@ public class Client
         }*/
     }
     
-    public void sendStop() throws IOException//opreste clientul si threadul asociat lui
+    public static void sendStop() throws IOException//opreste clientul si threadul asociat lui
     {
         try 
         {
@@ -125,7 +128,7 @@ public class Client
         }
     }
     
-    public void sendInsertCinemaHall(String name, int seats, String managerName, int openingTime, int closingTime) throws IOException
+    public static void sendInsertCinemaHall(String name, int seats, String managerName, int openingTime, int closingTime) throws IOException
     {
         try
         {
@@ -143,7 +146,7 @@ public class Client
         }
     }
     
-    public CinemaHall[] sendViewCinemaHalls() throws IOException
+    public static CinemaHall[] sendViewCinemaHalls() throws IOException
     {
         try 
         {
@@ -158,7 +161,7 @@ public class Client
         }
     }
     
-    public void sendDeleteCinemaHall(String cinemaHallName) throws IOException
+    public static void sendDeleteCinemaHall(String cinemaHallName) throws IOException
     {
         try 
         {
@@ -172,7 +175,7 @@ public class Client
         }
     }
     
-    public void sendModifyCinemaHall(String cinemaHallName, String field, String value)  throws IOException
+    public static void sendModifyCinemaHall(String cinemaHallName, String field, String value)  throws IOException
     {
         try 
         {
@@ -188,7 +191,7 @@ public class Client
         }
     }
     
-    public void sendInsertTicket(int hallId, int hour, int seat, String name) throws IOException
+    public static void sendInsertTicket(int hallId, int hour, int seat, String name) throws IOException
     {
         try
         {
@@ -205,7 +208,7 @@ public class Client
         }
     }
     
-    public Ticket[] sendViewTickets() throws IOException
+    public static Ticket[] sendViewTickets() throws IOException
     {
         try 
         {
@@ -220,7 +223,7 @@ public class Client
         }
     }
     
-    public void sendDeleteTicket(String ticketName) throws IOException
+    public static void sendDeleteTicket(String ticketName) throws IOException
     {
         try 
         {
@@ -234,7 +237,7 @@ public class Client
         }
     }
     
-    public void sendModifyTicket(String ticketName, String field, int value)  throws IOException
+    public static void sendModifyTicket(String ticketName, String field, int value)  throws IOException
     {
         try 
         {
@@ -250,7 +253,7 @@ public class Client
         }
     }
     
-    public Ticket[] sendViewIntervalTickets(int a, int b) throws IOException
+    public static Ticket[] sendViewIntervalTickets(int a, int b) throws IOException
     {
         try 
         {
@@ -267,7 +270,7 @@ public class Client
         }
     }
     
-    public Ticket[] sendViewHallTickets(int hall) throws IOException
+    public static Ticket[] sendViewHallTickets(int hall) throws IOException
     {
         try 
         {
@@ -282,6 +285,23 @@ public class Client
             return null;
         }
     }
+    
+    public static boolean sendIsValid(String userName, String password) throws IOException
+    {
+        try 
+        {
+            dos.writeUTF("UVALIDATION");
+            dos.writeUTF(userName);
+            dos.writeUTF(password);
+            boolean result = (boolean) ois.readObject();
+            return result;
+        }  
+        catch (IOException | ClassNotFoundException e)
+        {
+            e.printStackTrace(System.out);
+            return false;
+        }
+    }  
     
     public static void main( String args[] ) throws IOException
     {
