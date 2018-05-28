@@ -43,4 +43,17 @@ public class CinemaHall implements Serializable
         System.out.println( "CLOSING_TIME: " + closingTime );
         System.out.println();
     }
+    
+    public String returnContent()
+    {
+        String result = "";
+        result += "ID: " + id + "<br/>";
+        result += "NAME: " + name + "<br/>";
+        result += "SEATS: " + seats + "<br/>";
+        result += "MANAGER: " + managerName + "<br/>";
+        result += "OPENING_TIME: " + openingTime + "<br/>";
+        result += "CLOSING_TIME: " + closingTime + "<br/>";
+        result += "<br/>";
+        return result;
+    }
 }

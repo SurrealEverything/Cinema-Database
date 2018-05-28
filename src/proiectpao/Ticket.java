@@ -39,4 +39,16 @@ public class Ticket implements Serializable
         System.out.println( "NAME: " + name );
         System.out.println();
     }
+    
+    public String returnContent()
+    {
+        String result = "";
+        result += "ID: " + id + "<br/>";
+        result += "HALL_ID: " + hallId + "<br/>";
+        result += "HOUR: " + hour + "<br/>";
+        result += "SEAT: " + seat + "<br/>";
+        result += "NAME: " + name + "<br/>";
+        result += "<br/>";
+        return result;
+    }
 }
